@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+     <head>
+      	<title>Traffic Location</title>
+	</head>
+	<style>
+		body{
+			background-color:lightblue; 
+		}
+	</style>
+	<body>
+      	<p>Click the Button to send traffic location.</p>
+      	<button onclick="getlocation();">Get Location</button>
+      	<p id="x"></p>
+		<script>
+var x = document.getElementById("demo");
+
+function getlocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = `Latitude:  + ${position.coords.latitude} + <br>Longitude:  + ${position.coords.longitude}` ;
+}
+</script>
+
+	</body>
+</html>
